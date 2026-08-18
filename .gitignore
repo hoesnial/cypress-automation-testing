@@ -1,2 +1,5 @@
 node_modules/
 outputs/
+cypress/screenshots/
+cypress/videos/
+mochawesome-report/.jsons/
