@@ -1,13 +1,13 @@
 # Tugas 8 - Praktik Automation Testing Cypress
 
-Project ini menggunakan `https://demo.tokosatu.com/` sebagai target web.
+Project ini menggunakan `https://www.member.tokosatu.com/` sebagai target web.
 
 ## Cakupan pengujian
 
-- 5 test case System Testing untuk katalog theme Demo TokoSatu.
-- 4 test case E2E untuk alur Simple Shop Sayur.
-- CSS Selector berbasis ID, class, atribut `href`, `name`, dan tag HTML.
-- Assertion equality, visibility, dan state (`have.value`, `be.enabled`, serta atribut).
+- 5 test case System Testing untuk halaman login TokoSatu.
+- 4 test case E2E untuk alur navigasi login dan lupa password.
+- CSS Selector berbasis ID, class, atribut `href`, `name`, `type`, dan tag HTML.
+- Assertion equality, visibility, dan state (`have.value`, `be.checked`, `have.attr`).
 - Cypress automatic waiting dan retry-ability; tidak ada hardcoded wait seperti `cy.wait(5000)`.
 - HTML dan JSON report menggunakan Mochawesome.
 
@@ -38,7 +38,7 @@ npx cypress open
 Setelah test selesai, buka file HTML di folder:
 
 ```text
-mochawesome-report/mochawesome.html
+mochawesome-report/index.html
 ```
 
 File spec utama berada di:
@@ -49,11 +49,10 @@ cypress/e2e/auth/login_spec.cy.js
 
 ## Catatan skenario
 
-Target yang digunakan adalah katalog Demo TokoSatu dan subdemo Simple Shop Sayur,
-bukan aplikasi login/dashboard. Karena itu, assertion URL disesuaikan dengan
-path katalog, detail theme, produk, dan keranjang yang tersedia pada target.
+Target yang digunakan adalah halaman login di `member.tokosatu.com`, bukan halaman katalog.
+Test berfokus pada verifikasi elemen form login, validasi input, dan alur navigasi terkait
+login seperti lupa password.
 
-E2E-02 memverifikasi perubahan quantity dan state tombol `Add to cart`, sedangkan
-alur penambahan produk sampai keranjang diuji penuh pada E2E-04. Pemisahan ini
-menjaga test tetap deterministik karena endpoint demo publik dapat mengalami
-gangguan database sementara saat submit keranjang.
+E2E-01 menguji navigasi dari halaman utama ke login melalui menu, E2E-02 memverifikasi
+pengisian form dan state checkbox, E2E-03 menguji submit credential salah, dan
+E2E-04 menguji alur dari login ke halaman lupa password.
