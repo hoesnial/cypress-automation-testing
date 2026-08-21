@@ -4,7 +4,10 @@
   "private": true,
   "description": "Web automation testing Cypress untuk Demo TokoSatu",
   "scripts": {
-    "test:e2e": "cypress run",
+    "test": "cypress run",
+    "test:system": "cypress run --spec \"cypress/e2e/system/**/*.cy.js\"",
+    "test:e2e": "cypress run --spec \"cypress/e2e/e2e/**/*.cy.js\"",
+    "test:headed": "cypress run --headed",
     "test:e2e:headed": "cypress run --headed",
     "cypress:open": "cypress open"
   },

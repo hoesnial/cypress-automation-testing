@@ -2,9 +2,15 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://www.member.tokosatu.com',
+    baseUrl: 'https://demo.tokosatu.com',
     specPattern: 'cypress/e2e/**/*.cy.js',
     supportFile: 'cypress/support/e2e.js',
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 60000,
+    retries: {
+      runMode: 1,
+      openMode: 0,
+    },
     video: false,
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
@@ -14,7 +20,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     reportDir: 'mochawesome-report',
-    reportPageTitle: 'Laporan Automation Testing - Demo TokoSatu',
+    reportPageTitle: 'Laporan Web Automation Testing - Toserba TokoSatu',
     charts: true,
     embeddedScreenshots: true,
     inlineAssets: true,

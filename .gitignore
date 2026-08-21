@@ -3,3 +3,6 @@ outputs/
 cypress/screenshots/
 cypress/videos/
 mochawesome-report/.jsons/
+.codex/
+.agents/
+work/
